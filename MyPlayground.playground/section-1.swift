@@ -14,11 +14,7 @@ let appleSumarry = "I have \(apples) apples."
 
 let fruitSummary = "I have \(apples+oranges) fruits"
 
-//Array
-var shoppingList = ["Arroz", "Feijao", "Massa"]
 
-//Chamando array por index
-var feijao = shoppingList[1]
 
 //Optional strings
 var optionalString: String? = "Hello"
@@ -46,11 +42,19 @@ println(character)
 
 }
 
-
 //Conta os caracteres
 let animals = "Pato, Ganso"
 
 println("animal has \(countElements(animals)) characters")
+
+//----------ARRAY--------------
+
+
+//Array
+var shoppingList = ["Arroz", "Feijao", "Massa"]
+
+//Chamando array por index
+var feijao = shoppingList[1]
 
 var listShop: String[] = ["Eggs", "Milk"]
 // shoppingList has been initialized with two initial items”
@@ -94,6 +98,9 @@ for item in listShop
     println(item)
 }
 
+
+//----------DICIONARIO--------------
+
 //Declaração de dictionary
 
 var airports: Dictionary<String, String> = ["TYO": "Tokyo", "BRA":"Brasil"]
@@ -120,6 +127,75 @@ for(airportCode, airportName) in airports
 {
     println("\(airportCode): \(airportName)")
 }
+
+//----------FUNCÃO--------------
+
+//Criando funcao sem parametros com return
+
+func sayHello() -> String
+{
+    return "Hello!"
+}
+
+//Chamando funcao sem parametro com return
+
+println(sayHello())
+
+//Criando funcao com parametro e return
+
+func sayHello(personName: String) -> String
+{
+    let greeting = "Hello, " + personName + "!"
+    
+    return greeting
+}
+
+//Chamando funcao com parametro e return
+
+println(sayHello("Anna"))
+
+//Funcao com parametro sem return
+
+func sayGoodbye(personname:String)
+{
+    println("Bye, !, \(personname)!")
+}
+
+//Chamando funcao
+
+sayGoodbye("John")
+
+//Funcao com multiplos valores
+
+func count(palavra: String) -> (vogais: Int, consoants: Int, outros: Int)
+{
+    var vogais = 0, consoants = 0, outros = 0
+    
+    for char in palavra
+    {
+        switch String(char).lowercaseString
+        {
+        case "a", "e", "i", "o", "u":
+            ++vogais
+            
+        case "b", "c", "d", "f", "g", "h", "j", "k", "l", "m",
+        "n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z":
+            ++consoants
+            
+        default:
+            ++outros
+        }
+    }
+    return (vogais, consoants, outros)
+}
+
+//Chamando funcao com multiplos valores
+
+let total = count("A frase que vai ser verificada")
+    println("\(total.vogais) vogais, \(total.consoants), consoantes")
+    //Printa quantas vogais e consoantes tem a frase passada por parametro
+    //Para acessar o parametro é necessario usar a variavel que recebe a funcao como prefixo -> total.variable
+
 
 
 
