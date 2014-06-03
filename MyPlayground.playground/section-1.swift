@@ -196,8 +196,21 @@ let total = count("A frase que vai ser verificada")
     //Printa quantas vogais e consoantes tem a frase passada por parametro
     //Para acessar o parametro é necessario usar a variavel que recebe a funcao como prefixo -> total.variable
 
+    
+// ------------ CLOSURES(== Blocks)--------------
+    
+//Normal function
+let names = ["Chris", "Alex", "Ewa", "Barry", "Daniella"]
 
+func backwards(s1: String, s2: String) -> Bool {
+    return s1 > s2
+}
+var reversed = sort(names, backwards)
 
+//A mesma funçao utilizando closures
+//As chaves que antes ficavam depois dos parametros agora ficam antes e a definiçao da funcao começa apos o "in"
+
+reversed = sort(names, { (s1: String, s2: String) -> Bool in return s1 > s2 } )
 
 
 
